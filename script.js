@@ -1,11 +1,12 @@
-// script.js - JavaScript for Maximus and Livia's Roman Adventure
+// script.js - Maximus and Livia's Roman Adventure (Professional UI Version with Images & Canvas)
 
-// Select the main game container
+// Create main game container
 const gameContainer = document.createElement("div");
 gameContainer.classList.add("game-container");
 document.body.appendChild(gameContainer);
 
 gameContainer.innerHTML = `<h1 class='title'>Maximus and Livia's Roman Adventure</h1>`;
+gameContainer.innerHTML += `<p class='intro-text'>Embark on an epic journey through Ancient Rome! Choose a chapter to begin your adventure.</p>`;
 
 const chapters = [
     "The Magic Coin", "Welcome to Ancient Rome!", "The Roman Forum",
@@ -19,7 +20,6 @@ const chapters = [
 
 const chapterMenu = document.createElement("div");
 chapterMenu.classList.add("chapter-menu");
-chapterMenu.innerHTML = "<h2>Select a Chapter</h2>";
 gameContainer.appendChild(chapterMenu);
 
 chapters.forEach((chapter, index) => {
@@ -36,10 +36,13 @@ function startChapter(index) {
     gameDescription.classList.add("game-description");
     gameDescription.textContent = getGameDescription(index);
     gameContainer.appendChild(gameDescription);
+    
     const gameArea = document.createElement("div");
     gameArea.classList.add("game-area");
     gameContainer.appendChild(gameArea);
+    
     startMiniGame(index, gameArea);
+    
     const backButton = document.createElement("button");
     backButton.classList.add("back-button");
     backButton.textContent = "Back to Menu";
@@ -82,30 +85,40 @@ function startMiniGame(index, gameArea) {
 }
 
 function coinHuntGame(container) {
-    container.innerHTML = "Click the magic coin to start!";
-    const coin = document.createElement("button");
-    coin.textContent = "Magic Coin";
-    coin.classList.add("coin-button");
-    coin.onclick = () => alert("You found the magic coin! The adventure begins!");
-    container.appendChild(coin);
-}
-
-function triviaGame(container) {
-    container.innerHTML = "Who was the first Emperor of Rome?";
-    const answer = document.createElement("input");
-    answer.type = "text";
-    const submit = document.createElement("button");
-    submit.textContent = "Submit";
-    submit.classList.add("submit-button");
-    submit.onclick = () => {
-        if (answer.value.toLowerCase() === "augustus") {
-            alert("Correct! You advance to the next stage.");
-        } else {
-            alert("Try again!");
-        }
+    container.innerHTML = "<p>Click the glowing magic coin to start your adventure!</p>";
+    
+    // Add Background Image
+    const bgImage = document.createElement("img");
+    bgImage.src = "magic_coin_background.jpg";
+    bgImage.classList.add("background-image");
+    container.appendChild(bgImage);
+    
+    // Create Canvas for Magic Coin Effect
+    const canvas = document.createElement("canvas");
+    canvas.width = 300;
+    canvas.height = 300;
+    canvas.classList.add("coin-canvas");
+    container.appendChild(canvas);
+    const ctx = canvas.getContext("2d");
+    
+    // Draw Magic Coin
+    function drawCoin() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "gold";
+        ctx.beginPath();
+        ctx.arc(150, 150, 50, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = "darkgoldenrod";
+        ctx.lineWidth = 5;
+        ctx.stroke();
+    }
+    drawCoin();
+    
+    // Click Event for Coin
+    canvas.onclick = () => {
+        canvas.style.animation = "spin 1s linear";
+        setTimeout(() => alert("You found the magic coin! The adventure begins!"), 1000);
     };
-    container.appendChild(answer);
-    container.appendChild(submit);
 }
 
-console.log("Game script ready! Save as script.js and include in your HTML.");
+console.log("Game script upgraded with images & canvas! Save as script.js and include in your HTML.");

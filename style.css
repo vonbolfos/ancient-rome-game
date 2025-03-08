@@ -1,14 +1,25 @@
-// CSS File
-const cssTemplate = `
+/* styles.css - Maximus and Livia's Roman Adventure */
+
 body {
     background-color: #f4e1c9;
     font-family: 'Arial', sans-serif;
     text-align: center;
     padding: 20px;
+    margin: 0;
 }
 
-title {
+.game-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.title {
     color: #8B4513;
+    font-size: 32px;
 }
 
 .chapter-menu {
@@ -17,39 +28,47 @@ title {
 
 .chapter-button {
     display: block;
+    width: 80%;
     margin: 10px auto;
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
-    background-color: #8B4513;
+    background: linear-gradient(to right, #8B4513, #A0522D);
     color: white;
     border: none;
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 5px;
 }
 
 .chapter-button:hover {
-    background-color: #A0522D;
-}
-
-.back-button {
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #A52A2A;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.game-description {
-    font-size: 18px;
-    margin-top: 10px;
+    transform: scale(1.05);
 }
 
 .game-area {
     margin-top: 20px;
-    padding: 15px;
+    padding: 20px;
     border: 2px solid #8B4513;
     background-color: #fff;
     display: inline-block;
+    border-radius: 8px;
+}
+
+.background-image {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.coin-canvas {
+    margin-top: 20px;
+    border: 2px solid gold;
+    background-color: #f4e1c9;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
