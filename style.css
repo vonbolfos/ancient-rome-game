@@ -1,0 +1,55 @@
+// CSS File
+const cssTemplate = `
+body {
+    background-color: #f4e1c9;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+title {
+    color: #8B4513;
+}
+
+.chapter-menu {
+    margin-top: 20px;
+}
+
+.chapter-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.chapter-button:hover {
+    background-color: #A0522D;
+}
+
+.back-button {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #A52A2A;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.game-description {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.game-area {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #8B4513;
+    background-color: #fff;
+    display: inline-block;
+}
